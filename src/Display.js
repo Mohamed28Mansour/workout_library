@@ -10,7 +10,7 @@ const Display = () => {
             {bodyParts.map((bodyPart,index)=> {
                 const {id, title, image} = bodyPart
                 index = +Object.values({index}).join()
-                console.log(typeof title);
+                // console.log(typeof title);
                 return <span key={id} 
                 style={{'--i':`${index+1}`}} 
                 onClick={openFrameandFilterMuscle}

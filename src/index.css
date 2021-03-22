@@ -21,6 +21,7 @@ code {
   width: 100vw;
   display: flex;
   align-items: center;
+  background: lightblue;
 }
 
 .nav-container {
@@ -32,6 +33,8 @@ code {
 .page-container {
   display: flex;
   flex-direction: row;
+  width: 95vw;
+  justify-content: flex-end;
 }
 
 a {
@@ -41,20 +44,25 @@ a {
 .page {
   text-transform: capitalize;
   display: inline-block;
-  margin-left: 20%;
+  align-self: flex-end;
   font-weight: bold;
   font-weight: 400;
-  letter-spacing: 2px;
   font-size: 1.2rem;
 }
 
 .title {
   list-style: none;
+  width: 14vw;
+  cursor: default;
+  font-weight: bolder;
+  font-size: larger;
+  position: absolute;
+  left: 50px;
 }
 
 .logo {
   height: 5vh;
-  margin-left: 5px;
+  margin: 10px;
 }
 
 .cards-container {

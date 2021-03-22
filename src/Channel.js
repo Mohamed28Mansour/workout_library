@@ -1,14 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
 import {useGlobalContext} from './context'
-// import Playlist from './Playlist'
 
 const Channel = ({channelID, channelTitle, image, playlistID}) => {
-    const{setPlaylist} = useGlobalContext()
+    const{setPlaylist, filterPlaylist, filteredMuscle} = useGlobalContext()
     
-    // const name = snippet.title;
-    // const image = snippet.thumbnails.medium.url;
-    // const playlistID = contentDetails.relatedPlaylists.uploads;
     const key= process.env.REACT_APP_KEY
 
 
@@ -16,9 +12,23 @@ const Channel = ({channelID, channelTitle, image, playlistID}) => {
 
   const fetchPlaylist = async()=> {
   const response = await fetch(playlistUrl);
-  const playlist = await response.json();
-  console.log(playlist)
-  setPlaylist(playlist.items)
+  const data = await response.json();
+  const playlist = data.items
+let keywords = {
+    back : ['back', 'lat', 'lats', 'trap', 'traps'],
+    shoulders: ['shoulders', 'shoulder', 'delt', 'delts'],
+    chest: ['chest', 'peck', 'pecks', 'bench'],
+    triceps: ['triceps'],
+    biceps: ['biceps', 'bicep'],
+    forearms: ['forearms', 'forearm'],
+    core: ['ab', 'abs', '6 pack', 'six pack', 'core', 'obliques'],
+    glutes: ['glutes', 'butt'],
+    calves: ['calves', 'calf'],
+    quads: ['quads', 'leg', 'legs'],
+    hamstrings: ['hamstrings', 'leg', 'legs']
+}
+let newPlaylist = filterPlaylist(keywords[filteredMuscle], playlist)
+setPlaylist(newPlaylist)
 }
 
 
@@ -26,7 +36,7 @@ const Channel = ({channelID, channelTitle, image, playlistID}) => {
         <article className='single-channel'>
             <button className='channel-btn' onClick={fetchPlaylist}>
             <h3>{channelTitle}</h3>
-            <Link to={`/channel/${playlistID}`}>
+            <Link to={`/channel/${channelID}`}>
             <img src={image} className='channel-card' alt={channelTitle}/>
             </Link>
             </button>

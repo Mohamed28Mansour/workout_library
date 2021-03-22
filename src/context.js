@@ -41,6 +41,20 @@ const closeFrame = () => {
     setIsFrameOpen(false)
 }
 
+const isWordInside = (vidTitle, word) => new RegExp('\\b' + word + '\\b', 'i').test(vidTitle)
+
+const filterPlaylist = (keywords, unfilteredVids) => {
+    let filteredPlaylist = unfilteredVids.filter((vid)=>{
+        for (let keyword of keywords){
+            if (isWordInside(vid.snippet.title.toLowerCase(), keyword)){
+                return true
+            }
+        }
+        return false
+    })
+    return filteredPlaylist
+}
+
     return <AppContext.Provider value={{
         channels,
         isFrameOpen,
@@ -49,6 +63,7 @@ const closeFrame = () => {
         setPlaylist,
         playlist,
         filteredMuscle,
+        filterPlaylist,
     }}>
         {children}
     </AppContext.Provider>
