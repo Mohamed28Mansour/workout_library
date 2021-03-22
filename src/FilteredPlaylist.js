@@ -5,25 +5,36 @@ const FilteredPlaylist = () => {
     const {playlist, filteredMuscle} = useGlobalContext()
 
     if(playlist.length < 1){
-    return <h1>No available videos for {filteredMuscle} in the chosen channel</h1>
+    return (
+            <section className='vids-container'>
+                    <iframe src="https://giphy.com/embed/3osxYyselsczdHc1eE" 
+                            frameBorder="0" 
+                            className="gif" 
+                            title= 'gif'
+                            allowFullScreen
+                            />
+                <h1>No available videos for {filteredMuscle} in the chosen channel</h1>
+            </section>
+        )
     }
     return (
         <section className='vids-container'>
             <div className="vids">
-                <h2>{filteredMuscle}</h2>
+                <h2 className='muscle'>{filteredMuscle}</h2>
                 {playlist.map((vid)=> {
                     // console.log(vid);
                      const {snippet} = vid
                      const vidID = snippet.resourceId.videoId
                      const vidTitle = snippet.title
                      return (
-                        <div key={vidID}>
+                        <div className='vid' key={vidID}>
                             <iframe src={`https://www.youtube.com/embed/${vidID}`} 
                             frameBorder="0"
                             allowFullScreen
                             title={vidTitle}
+                            className='vid-frame'
                             />
-                            <p>{vidTitle}</p>
+                            <p className='vid-title'>{vidTitle}</p>
                         </div>
                         )
                 })}

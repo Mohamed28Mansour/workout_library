@@ -12,9 +12,11 @@ const Navbar = () => {
                     <img src={logo} className='logo' alt="home logo" onClick={closeFrame}/>
                 </Link>
                 <ul className='page-container'>
-                    <li className='title'>
+                    <Link to='/'>
+                    <li className='title' onClick={closeFrame}>
                         Workout Library
                     </li>
+                    </Link>
                     <li className='page'>
                         <Link to='/about'>
                             About

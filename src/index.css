@@ -16,6 +16,8 @@ code {
     monospace;
 }
 
+/* navbar */
+
 .navbar {
   height: 10vh;
   width: 100vw;
@@ -39,6 +41,10 @@ code {
 
 a {
   text-decoration: none;
+  color: black;
+}
+a:active {
+  color: black;
 }
 
 .page {
@@ -64,6 +70,8 @@ a {
   height: 5vh;
   margin: 10px;
 }
+
+/* display */
 
 .cards-container {
   display: flex;
@@ -93,11 +101,6 @@ a {
   }
 }
 
-/* .card img {
-  height: 25vh;
-  width: 10vw;
-} */
-
 .card span {
   position: absolute;
   top: 0;
@@ -124,6 +127,8 @@ a {
   display: flex;
   justify-content: center;
 }
+
+/* channels */
 
 .frame-status {
   position: fixed;
@@ -192,4 +197,60 @@ a {
   border-color: transparent;
   color: white;
   cursor: pointer;
+}
+
+/* filtered videos */
+
+.vids-container {
+  background: black;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.gif {
+  position: absolute;
+  top: 30vh;
+  pointer-events: none;
+}
+
+.vids-container h1 {
+  color: red;
+  align-self: center;
+}
+
+.vids {
+  display: flex;
+  max-width: 40%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.muscle {
+  color: red;
+  text-transform: uppercase;
+  margin: 20px;
+}
+
+.vid {
+  margin-bottom: 20px;
+  border-color: red;
+  border-style: solid;
+  border-width: thick;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.vid-frame {
+  width: 40vw;
+  height: 40vh;
+}
+
+.vid-title {
+  color: white;
+  font-size: large;
+  align-self: center;
+  padding: 5px;
 }
